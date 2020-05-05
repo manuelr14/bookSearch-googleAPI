@@ -8,7 +8,47 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
 const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  search: {
+    position: 'relative',
+    // // borderRadius: theme.shape.borderRadius,
+    // backgroundColor: fade(theme.palette.common.white, 0.15),
+    // '&:hover': {
+    //   backgroundColor: fade(theme.palette.common.white, 0.25),
+  },
+  searchIcon: {
+    // padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+  root1: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: '20px',
+    textAlign: 'center',
+    // color: theme.palette.text.secondary,
+  },
   root: {
     minWidth: 275,
   },
@@ -35,65 +75,93 @@ const useStyles = makeStyles({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+
 
   return (
-    <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid' }}>
-        <Typography>
-        <h3 style={{ textAlign: 'left' }}>Search Books</h3>
+    <div>
+    <Container maxWidth="md" style={{ borderWidth: '1px', border: 'solid' }}>
+      <Typography>
 
-        </Typography>
+        <h3 style={{ textAlign: 'left' }}>Books</h3>
 
-    <Card className={classes.root} style={{ borderWidth: '1px', border:'solid', marginBottom:'10px'}}>
-      
-      <CardContent>     
-         <CardActions style={{ textAlign:'right'}}>
-        <Button   size="small">View</Button>
-        <Button size="small">Delete</Button>
-      </CardActions>
-        <Typography variant="h4" color="textSecondary" gutterBottom>
+      </Typography>
 
-          Harry Potter
-        </Typography>
-        <Typography variant="h5" component="h2">
-          The great book behind adventures
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          writen by nosequien
-        </Typography>
-
-      <div className={classes.root1}>
-      <Grid container spacing={3} >
-      <Grid item xs={6}>
-
-      {/* <img src="https://images1.penguinrandomhouse.com/cover/9781644732076"alt="Girl in a jacket" style="width:200px;height:200px;"/> */}
-        
-      
-      </Grid>
-      
-      <Grid item xs={6}>
-     
-        <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-            heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-            browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-            and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-            pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-          </Typography>
-       
-      </Grid>
-      </Grid>
-       
-     
-    </div >
-
-
-      </CardContent>
-
-    </Card>
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
+          <SearchIcon />
+        </div>
+        <InputBase
+          placeholder="Search…"
+          // classes={{
+          //   root: classes.inputRoot,
+          //   input: classes.inputInput,
+          // }}
+          inputProps={{ 'aria-label': 'search' }}
+        />
+      </div>
     </Container>
-  );
+
+    <Container maxWidth="md" style={{ borderWidth: '1px', border: 'solid' }} >
+      <Typography>
+       
+        <h3 style={{ textAlign: 'left' }}>Saved Books</h3>
+
+      </Typography>
+
+      <Card className={classes.root} style={{ borderWidth: '1px', border: 'solid', marginBottom: '10px' }}>
+
+        <CardContent>
+
+          <CardActions style={{ textAlign: 'right' }}>
+            <Button size="small">View</Button>
+            <Button size="small">Delete</Button>
+          </CardActions>
+
+          <Typography variant="h4" color="textSecondary" gutterBottom>
+
+            Harry Potter
+
+        </Typography>
+          <Typography variant="h5" component="h2">
+            The great book behind adventures
+        </Typography>
+          <Typography className={classes.pos} color="textSecondary">
+            writen by nosequien
+        </Typography>
+
+          <div className={classes.root1}>
+            <Grid container spacing={3} >
+              <Grid item xs={6}>
+
+                {/* <img src="https://images1.penguinrandomhouse.com/cover/9781644732076"alt="Girl in a jacket" style="width:200px;height:200px;"/> */}
+
+
+              </Grid>
+
+              <Grid item xs={6}>
+
+                <Typography paragraph>
+                  Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
+                  heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
+                  browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
+                  and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
+                  pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
+                  saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+          </Typography>
+
+              </Grid>
+            </Grid>
+
+
+          </div >
+
+
+        </CardContent>
+
+      </Card>
+    </Container>
+  </div>
+  )
 }
 
 

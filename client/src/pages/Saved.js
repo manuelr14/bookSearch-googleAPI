@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -35,7 +36,7 @@ const useStyles = makeStyles({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  
 
   return (
     <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid' }}>
