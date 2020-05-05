@@ -115,6 +115,7 @@ export default function SimpleCard() {
           inputProps={{ 'aria-label': 'search' }}
         />
       </div>
+         <Button size="small">Search</Button>
     </Container>
 
     <Container maxWidth="md" style={{ borderWidth: '1px', border: 'solid' }} >
