@@ -25,14 +25,9 @@ function App() {
         
         </Typography>
       </Container>
-
-      <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid' }}>
-        <Typography>
-        <h3 style={{ textAlign: 'left' }}>Saved Books</h3>
-
-        </Typography>
-        <Saved />
-      </Container>
+       
+       <Saved />
+      
 
     </div>
 

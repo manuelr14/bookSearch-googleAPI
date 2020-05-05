@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
+import Container from '@material-ui/core/Container';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -38,7 +38,14 @@ export default function SimpleCard() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
+    <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid' }}>
+        <Typography>
+        <h3 style={{ textAlign: 'left' }}>Saved Books</h3>
+
+        </Typography>
+
     <Card className={classes.root} style={{ borderWidth: '1px', border:'solid', marginBottom:'10px'}}>
+      
       <CardContent>     
          <CardActions style={{ textAlign:'right'}}>
         <Button   size="small">View</Button>
@@ -85,6 +92,7 @@ export default function SimpleCard() {
       </CardContent>
 
     </Card>
+    </Container>
   );
 }
 
