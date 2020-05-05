@@ -5,19 +5,20 @@ import Container from '@material-ui/core/Container';
 import CenteredGrid from './Grid';
 
 export default function SimpleContainer() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <Container maxWidth="lx">
-        <Typography component="div" style={{ margin: '30px 0px 0px 0px', border: 'solid', borderWidth:"2px", height: '35vh' }} >
+    return (
+        <React.Fragment>
+            <CssBaseline />
+            <Container maxWidth="md" style={{ border: 'solid', borderWidth: "2px" }} >
+                <Typography component="div" style={{ height: '25vh' }} >
 
-        <h1 style={{ textAlign:'center'}}>
-        
-        (React) Google Books Search</h1>
-        </Typography>
-     
-      </Container>
-    </React.Fragment>
-  );
+                    <h1 style={{ textAlign: 'center' }}>(React) Google Books Search</h1>
+                    <h3 style={{ textAlign: 'center' }}>Search for and Save Books of interests</h3>
+                </Typography>
+
+
+
+            </Container>
+        </React.Fragment>
+    );
 }
-{/* <Container maxWidth="sm"></Container> */}
+{/* <Container maxWidth="sm"></Container> */ }
