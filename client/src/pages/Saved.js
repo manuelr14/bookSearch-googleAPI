@@ -38,9 +38,14 @@ export default function SimpleCard() {
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.root} style={{ borderWidth: '1px', border:'solid'}}>
-      <CardContent>
+    <Card className={classes.root} style={{ borderWidth: '1px', border:'solid', marginBottom:'10px'}}>
+      <CardContent>     
+         <CardActions style={{ textAlign:'right'}}>
+        <Button   size="small">View</Button>
+        <Button size="small">Delete</Button>
+      </CardActions>
         <Typography variant="h4" color="textSecondary" gutterBottom>
+
           Harry Potter
         </Typography>
         <Typography variant="h5" component="h2">
@@ -78,9 +83,7 @@ export default function SimpleCard() {
 
 
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+
     </Card>
   );
 }
