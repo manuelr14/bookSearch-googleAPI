@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -6,16 +6,14 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
-import { Mylist, Mylistitem } from "../components/List";
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
-import GoogleApi from '../utils/GoogleAPI';
-import API from '../utils/API';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        minWidth: 275,
+        width: '100%',
+        // maxWidth: '36ch'
     },
     bullet: {
         display: 'inline-block',
@@ -85,40 +83,40 @@ export default function SimpleCard(props) {
                                 <CardContent>
 
                                     <CardActions style={{ textAlign: 'right' }}>
-                                        <Button size="small">View</Button>
+                                       
+                                       
+                                        <Button size="small"
+                                        href={props.bookLink}
+                                        target='_blank'
+                                        >View</Button>
+                                      
                                         <Button size="small">Delete</Button>
                                     </CardActions>
 
                                     <Typography variant="h4" color="textSecondary" gutterBottom>
 
-                                        Harry Potter
+                                       {props.title}
 
                                     </Typography>
-                                    <Typography variant="h5" component="h2">
-                                        The great book behind adventures
-                                    </Typography>
+
                                     <Typography className={classes.pos} color="textSecondary">
-                                        writen by nosequien
+                                    {props.authors && props.authors.length > 0 ? props.authors.join(" & ") : ""}
                                     </Typography>
 
                                     <div className={classes.root1}>
-                                        <Grid container spacing={3} >
+                                        <Grid container spacing={3} style={{minWidth:'850px'}}  >
                                             <Grid item xs={6}>
 
-                                                {/* <img src="https://images1.penguinrandomhouse.com/cover/9781644732076"alt="Girl in a jacket" style="width:200px;height:200px;"/> */}
-
+                                            <ListItemAvatar>
+                                                 <Avatar alt="book" src={props.img} />
+                                             </ListItemAvatar>
 
                                             </Grid>
 
-                                            <Grid item xs={6}>
+                                            <Grid item xs={6} >
 
                                                 <Typography paragraph>
-                                                    Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
-                                                    heat. Add chicken, shrimp and chorizo, and cook, stirring occasionally until lightly
-                                                    browned, 6 to 8 minutes. Transfer shrimp to a large plate and set aside, leaving chicken
-                                                    and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                                                    pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                                                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+                                                    {props.description}
                                                 </Typography>
 
                                             </Grid>
@@ -130,8 +128,7 @@ export default function SimpleCard(props) {
                                 </CardContent>
 
                             </Card>
-                        )
-                    })}
+              
                 
           
 

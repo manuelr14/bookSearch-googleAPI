@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import { Mylist, Mylistitem } from "../components/List";
 import SearchIcon from '@material-ui/icons/Search';
@@ -155,17 +151,19 @@ export default function SimpleCard() {
           <h3 style={{ textAlign: 'left' }}>Saved Books</h3>
 
         </Typography>
-        {books.lenght ? (
 
+          {/* {books.lenght ? ( */}
           <Mylist>
             {books.map((book, index) => {
               return (
+                <Mylistitem>
                 <SavedBooks img={book.image} title={book.title} authors={book.authors} bookLink={book.link} description={book.description}/>
+                </Mylistitem>
               )
             })}
+            
           </Mylist>
-
-        ) : (<h3>No Results to Display</h3> )}
+          {/* ) : (<h3>No Results to Display</h3> )} */}
       </Container>
     </div>
   )
