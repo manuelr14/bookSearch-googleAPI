@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import SearchIcon from '@material-ui/icons/Search';
+import TextField from '@material-ui/core/TextField';
 import InputBase from '@material-ui/core/InputBase';
+import GoogleApi from '../utils/GoogleAPI';
+import API from '../utils/API';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
@@ -64,33 +67,55 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  },
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-  root1: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: '20px',
-    textAlign: 'center',
-  color: theme.palette.text.secondary,
   }
+  
 }));
 
 export default function SimpleCard() {
   const classes = useStyles();
+
+  const [books, setBooks] = useState([])
+  const [formObject, setFormObject] = useState("")
+
+  function bookSearch() {
+    GoogleApi.findBooks(formObject).then(results => {
+      console.log(results);
+
+      setBooks(results.data.items.map(book => {
+        return {
+          title: book.volumeInfo.title,
+          authors: book.volumeInfo.authors,
+          description: book.volumeInfo.description,
+          link: book.volumeInfo.infoLink,
+          image: book.volumeInfo.imageLinks.thumbnail
+        }
+      }));
+    }).catch(err => setBooks([]))
+  }
+
+  function handleInputChange({ target }) {
+    setFormObject(target.value);
+    console.log(target.value);
+    // add code to control the components here
+  }
+
+  function handleFormSubmit(event) {
+    // add code here to post a new book to the api
+    console.log("hiting buttom");
+    event.preventDefault();
+    console.log(formObject);
+    bookSearch();
+    console.log(books)
+  }
+
+  function storeBook(bookNum) {
+    const targetBook = books[bookNum];
+    console.log(targetBook);
+    API.saveBook(targetBook).then(res => {
+      console.log(res);
+    }).catch(err => console.log(err))
+  }
+
 
 
   return (
@@ -107,7 +132,9 @@ export default function SimpleCard() {
           <SearchIcon />
         </div>
         <InputBase
+         fullWidth= "true"
           placeholder="Search…"
+          onChange={handleInputChange}
           classes={{
             root: classes.inputRoot,
             input: classes.inputInput,
@@ -115,7 +142,9 @@ export default function SimpleCard() {
           inputProps={{ 'aria-label': 'search' }}
         />
       </div>
-         <Button size="small">Search</Button>
+         <Button size="small"
+         onClick={handleFormSubmit}
+         >Search</Button>
     </Container>
 
     <Container maxWidth="md" style={{ borderWidth: '1px', border: 'solid' }} >

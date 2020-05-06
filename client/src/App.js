@@ -1,12 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/Navbar";
-import Grid from "./components/Grid";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
