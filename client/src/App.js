@@ -24,6 +24,8 @@ function App() {
 
           </Typography>
         </Container>
+       
+        <Route exact path="/" component={Search} />
         <Route exact path="/Search" component={Search} />
         <Route exact path="/Saved" component={Saved} />
 
