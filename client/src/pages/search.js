@@ -160,7 +160,7 @@ export default function SimpleCard() {
           <Mylist>
             {books.map((book, index) => {
               return (
-                <SavedBooks />
+                <SavedBooks img={book.image} title={book.title} authors={book.authors} bookLink={book.link} description={book.description}/>
               )
             })}
           </Mylist>
