@@ -153,16 +153,22 @@ export default function SimpleCard() {
         </Typography>
 
           {/* {books.lenght ? ( */}
-          <Mylist>
+          <Mylist >
             {books.map((book, index) => {
               return (
-                <Mylistitem>
+                <Mylistitem key={index}>
                 <SavedBooks img={book.image} title={book.title} authors={book.authors} bookLink={book.link} description={book.description}/>
+                <Button
+                onClick={() => storeBook(index)}
+                variant="contained"
+                color="secondary">
+                Save
+                </Button>
                 </Mylistitem>
               )
             })}
+            </Mylist>
             
-          </Mylist>
           {/* ) : (<h3>No Results to Display</h3> )} */}
       </Container>
     </div>

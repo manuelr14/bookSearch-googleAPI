@@ -104,7 +104,7 @@ export default function SimpleCard(props) {
                                     </Typography>
 
                                     <div className={classes.root1}>
-                                        <Grid container spacing={3} style={{minWidth:'850px'}}  >
+                                        <Grid container spacing={3} style={{minWidth:'750px'}}  >
                                             <Grid item xs={6}>
 
                                             <ListItemAvatar>
