@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import NavBar from "./components/Navbar";
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div>
-
+<Router>
       <NavBar />
       <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid', marginBottom:'30px' }}>
         <Typography component="div"  >
@@ -24,10 +24,10 @@ function App() {
         
         </Typography>
       </Container>
-       
-       {/* <Saved /> */}
-       <Search/>
-      
+       <Route exact path="/Search" component={Search}/>
+       <Route exact path="/Saved" component={Saved}/>
+
+       </Router>  
 
     </div>
 
