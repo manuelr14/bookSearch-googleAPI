@@ -14,20 +14,20 @@ function App() {
 
   return (
     <div>
-<Router>
-      <NavBar />
-      <Container maxWidth="md" style={{ borderWidth: '1px', border:'solid', marginBottom:'30px' }}>
-        <Typography component="div"  >
+      <Router>
+        <NavBar />
+        <Container maxWidth="md" style={{ borderWidth: '1px', border: 'solid', marginBottom: '30px' }}>
+          <Typography component="div"  >
 
-          <h1 style={{ textAlign: 'center' }}>(React) Google Books Search</h1>
-          <h3 style={{ textAlign: 'center' }}>Search for and Save Books of interests</h3>
-        
-        </Typography>
-      </Container>
-       <Route exact path="/Search" component={Search}/>
-       <Route exact path="/Saved" component={Saved}/>
+            <h1 style={{ textAlign: 'center' }}>(React) Google Books Search</h1>
+            <h3 style={{ textAlign: 'center' }}>Search for and Save Books of interests</h3>
 
-       </Router>  
+          </Typography>
+        </Container>
+        <Route exact path="/Search" component={Search} />
+        <Route exact path="/Saved" component={Saved} />
+
+      </Router>
 
     </div>
 
