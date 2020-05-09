@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SavedBooks from '../components/SavedBooks';
+import SavedBooks from '../../components/SavedBooks';
 import Container from '@material-ui/core/Container';
-import { Mylist, Mylistitem } from "../components/List";
+import { Mylist, Mylistitem } from "../../components/List";
 
 
 export default function SimpleCard() {

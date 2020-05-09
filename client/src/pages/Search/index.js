@@ -3,12 +3,12 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { Mylist, Mylistitem } from "../components/List";
+import { Mylist, Mylistitem } from "../../components/List";
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import GoogleApi from '../utils/GoogleAPI';
-import API from '../utils/API';
-import SavedBooks from '../components/SavedBooks';
+import GoogleApi from '../../utils/GoogleAPI';
+import API from '../../utils/API';
+import SavedBooks from '../../components/SavedBooks';
 
 const useStyles = makeStyles((theme) => ({
   root: {
